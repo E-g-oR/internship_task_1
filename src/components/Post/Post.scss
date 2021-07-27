@@ -1,0 +1,15 @@
+.post {
+   max-width: 270px;
+   padding: 20px;
+   background-color: #eee;
+   border-radius: 10px;
+   &__title {
+   }
+   &__body {
+   }
+}
+@media all and (max-width: 750px) {
+   .post {
+      margin: 0 auto;
+   }
+}

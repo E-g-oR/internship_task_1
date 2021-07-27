@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import AllCardsContainer from './AllCardsContainer';
-import FavoriteCardsContainer from './FavoriteCardsContainer';
-import CardDetails from './CardDetails';
+import AllCardsContainer from './components/AllCardsContainer/AllCardsContainer';
+import FavoriteCardsContainer from './components/FavoriteCardsContainer/FavoriteCardsContainer';
+import CardDetails from './components/CardDetails/CardDetails';
 
 function App() {
   return (
