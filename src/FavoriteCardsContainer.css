@@ -1,0 +1,4 @@
+.FavoriteCardsContainer {
+   border: 3px solid green;
+   grid-row: span 3;
+}

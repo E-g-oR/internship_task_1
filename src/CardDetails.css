@@ -1,0 +1,4 @@
+.CardDetails {
+   border: 3px solid orange;
+   grid-column: span 2;
+}
