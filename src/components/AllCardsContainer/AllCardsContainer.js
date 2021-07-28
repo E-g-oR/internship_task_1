@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './AllCardsContainer.scss'
-import Post from '../Post/Post'
+import Post from '../ui/Post/Post'
 
 function AllCardsContainer() {
    const [posts, setPosts] = useState([])
@@ -11,9 +11,9 @@ function AllCardsContainer() {
          .then(response => response.json())
          .then(data => {
             setLoaded(true)
-            return setPosts(data)
+            setPosts(data)
          })
-   })
+   }, [])
    if (!loaded) {
       return (
          <div className="all-cards-container">
