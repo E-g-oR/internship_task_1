@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './AllCardsContainer.scss'
-import Post from '../ui/Post/Post'
+import Post from '../UI/Post/Post'
 
 function AllCardsContainer() {
    const [posts, setPosts] = useState([])
@@ -20,9 +20,10 @@ function AllCardsContainer() {
             <p>Loading...</p>
          </div>
       )
-   } else if (loaded) return (
+   }
+   return (
       <div className="all-cards-container">
-         {posts.map(post => <Post key={post.id} title={post.title} body={post.body} />)}
+         {posts.map(post => <Post key={post.id} post={post} />)}
       </div>
    )
 }

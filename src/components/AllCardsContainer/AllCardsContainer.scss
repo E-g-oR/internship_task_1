@@ -4,23 +4,21 @@
    font-size: 17px;
    overflow-y: auto;
    border: 3px solid red;
-   grid-column: span 2;
-   grid-row: span 2;
    display: grid;
    gap: 30px;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: 1fr 1fr;
 }
 
 @media all and (max-width: 950px) {
    .all-cards-container {
-      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
       padding: 15px;
    }
 }
 @media all and (max-width: 750px) {
    .all-cards-container {
-      padding: 15px 0;
-      grid-template-columns: repeat(1, 1fr);
+      // padding: 15px 0;
+      grid-template-columns: 1fr;
+      max-height: 60vh;
    }
 }

@@ -1,4 +1,8 @@
 .card-details {
    border: 3px solid orange;
-   grid-column: span 2;
+}
+@media all and (max-width: 750px) {
+   .card-details {
+      max-height: 40vh;
+   }
 }
