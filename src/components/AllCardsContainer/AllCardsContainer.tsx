@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './AllCardsContainer.scss'
-import Post from '../UI/Post/Post'
+import Post, { postType } from '../UI/Post/Post'
 
-function AllCardsContainer() {
-   const [posts, setPosts] = useState([])
-   const [loaded, setLoaded] = useState(false)
+
+const AllCardsContainer: React.FC = () => {
+   const [posts, setPosts] = useState<postType[]>([])
+   const [loaded, setLoaded] = useState<boolean>(false)
 
    useEffect(() => {
       fetch('https://jsonplaceholder.typicode.com/posts')
@@ -23,7 +24,7 @@ function AllCardsContainer() {
    }
    return (
       <div className="all-cards-container">
-         {posts.map(post => <Post key={post.id} post={post} />)}
+         {posts.map((post) => <Post key={post.id} post={post} />)}
       </div>
    )
 }

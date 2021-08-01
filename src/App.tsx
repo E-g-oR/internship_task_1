@@ -1,9 +1,10 @@
 import './App.scss';
+import React from 'react';
 import AllCardsContainer from './components/AllCardsContainer/AllCardsContainer';
 import FavoriteCardsContainer from './components/FavoriteCardsContainer/FavoriteCardsContainer';
 import CardDetails from './components/CardDetails/CardDetails';
 
-function App() {
+const App: React.FC = ()=> {
   return (
     <div className="App">
       <AllCardsContainer />
