@@ -31,6 +31,7 @@ const Post: React.FC<{ post: postType }> = ({ post }) => {
       setIsFavorite(true)
       post.isFavorite = true
       dispatch(increment(postObj))
+
    }
    const removeFromFavorite = (): void => {
       setIsFavorite(false)
