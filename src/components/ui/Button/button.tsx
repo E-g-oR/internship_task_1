@@ -4,14 +4,14 @@ import './button.scss'
 
 interface IButton {
    text: string,
-   clickHandler: (postIndex: number, postObj: postType) => void,
-   postIndex: number,
+   clickHandler: (postObj: postType) => void,
    postObj: postType
 }
 
-const Button: React.FC<IButton> = ({ text, clickHandler, postIndex, postObj }) => {
+const Button: React.FC<IButton> = ({ text, clickHandler, postObj }) => {
+
    return (
-      <button className="post__button" onClick={() => { clickHandler(postIndex, postObj) }}>{text}</button>
+      <button className="post__button" onClick={() => { clickHandler(postObj) }}>{text}</button>
    )
 }
 export default Button

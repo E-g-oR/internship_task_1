@@ -4,13 +4,13 @@ const incr: CaseReducer<RootStateOrAny, RootStateOrAny> = (post, state) => {
    post.favoritePosts.push(state.payload)
 }
 const decr: CaseReducer<RootStateOrAny, RootStateOrAny> = (post, state) => {
-   post.favoritePosts.splice(state.payload, 1)
+   const index = state.payload
+   post.favoritePosts.splice(index, 1)
 }
 
 export const counterSlice = createSlice({
    name: 'counter',
    initialState: {
-      value: 0,
       favoritePosts: []
    },
    reducers: {

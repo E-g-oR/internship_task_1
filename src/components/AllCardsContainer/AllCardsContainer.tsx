@@ -10,8 +10,9 @@ const AllCardsContainer: React.FC = () => {
    useEffect(() => {
       fetch('https://jsonplaceholder.typicode.com/posts')
          .then(response => response.json())
-         .then(data => {
+         .then((data) => {
             setLoaded(true)
+            data.map((item: postType) => item.isFavorite = false)
             setPosts(data)
          })
    }, [])
