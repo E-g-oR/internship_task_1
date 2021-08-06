@@ -7,8 +7,6 @@ import { addAllPosts } from '../../features/counter/counterSlice'
 const AllCardsContainer: React.FC = () => {
    let allPosts: postType[] = useSelector((state: RootStateOrAny) => state.counter.allPosts)
    const dispatch = useDispatch()
-   const favoritePosts = useSelector((state: RootStateOrAny) => state.counter.favoritePosts)
-   const [posts, setPosts] = useState<postType[]>([])
    const [loaded, setLoaded] = useState<boolean>(false)
 
    useEffect(() => {
@@ -17,11 +15,10 @@ const AllCardsContainer: React.FC = () => {
          .then((data) => {
             setLoaded(true)
             data.map((item: postType) => item.isFavorite = false)
-            setPosts(data)
             dispatch(addAllPosts(data))
-
          })
-   }, [])
+   }, [dispatch])
+
    if (!loaded) {
       return (
          <div className="all-cards-container">

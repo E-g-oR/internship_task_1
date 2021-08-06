@@ -4,7 +4,7 @@ import Post, { postType } from '../UI/Post/Post'
 import './FavoriteCardsContainer.scss'
 
 const FavoriteCardsContainer: React.FC = () => {
-   const posts: postType[] = useSelector((state: RootStateOrAny) => state.counter.favoritePosts)  //! change state type
+   const posts: postType[] = useSelector((state: RootStateOrAny) => state.counter.favoritePosts)
 
    return (
       <div className="favorite-cards-container">
