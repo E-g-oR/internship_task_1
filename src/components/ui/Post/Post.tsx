@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { increment, decrement } from '../../../features/counter/counterSlice';
-import Button from '../Button/button';
+import PostButton from '../postButton/PostButton';
 import './Post.scss'
 export interface postType {
    userId: number,
@@ -33,7 +33,7 @@ const Post: React.FC<{ post: postType }> = ({ post }) => {
             <p className="post__body">{post.body}</p>
          </div>
          <div className="card-action" >
-            <Button text={post.isFavorite ? 'Remove' : 'Add to favorites'} clickHandler={post.isFavorite ? removeFromFavorite : addToFavorite} postObj={post} />
+            <PostButton text={post.isFavorite ? 'Remove' : 'Add to favorites'} clickHandler={post.isFavorite ? removeFromFavorite : addToFavorite} postObj={post} />
          </div>
       </div>
    )

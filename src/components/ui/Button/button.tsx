@@ -1,17 +1,12 @@
-import React from 'react'
-import { postType } from '../Post/Post'
-import './button.scss'
-
-interface IButton {
-   text: string,
-   clickHandler: (postObj: postType) => void,
-   postObj: postType
+import React from "react";
+interface Ibutton {
+	text: string,
+	type: 'button' | 'submit' | 'reset' | undefined
+	styles?: string,
+	btnType?: 'btn' | 'btn-flat' | 'btn-floating' | 'btn-large' | 'btn-small'
+	onClick: () => void
 }
 
-const Button: React.FC<IButton> = ({ text, clickHandler, postObj }) => {
-
-   return (
-      <button className="post__button" onClick={() => { clickHandler(postObj) }}>{text}</button>
-   )
+export const Button: React.FC<Ibutton> = ({ text, type, styles, btnType, onClick }) => {
+	return <button className={`waves-effect waves-dark ${styles} ${btnType}`} onClick={onClick} type={type}>{text}</button>
 }
-export default Button
