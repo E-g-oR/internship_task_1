@@ -1,5 +1,7 @@
 .all-cards-container {
    // margin: 0 auto;
+   // grid-column: span 2;
+   // grid-row: span 2;
    padding: 30px;
    font-size: 17px;
    overflow-y: auto;
@@ -15,10 +17,10 @@
       padding: 15px;
    }
 }
-@media all and (max-width: 750px) {
+@media all and (max-width: 870px) {
    .all-cards-container {
       // padding: 15px 0;
-      grid-template-columns: 1fr;
+      // grid-template-columns: 1fr;
       max-height: 60vh;
       // width: 100%;
    }

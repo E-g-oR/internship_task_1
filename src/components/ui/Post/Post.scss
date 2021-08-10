@@ -12,6 +12,9 @@
       margin-right: auto;
    }
 
+   &.added {
+      border: 2px solid red;
+   }
    &.favorite {
       background-color: #ffee58;
       & .post__button {

@@ -3,7 +3,7 @@ import { RootStateOrAny } from "react-redux";
 import { postType } from "../../components/UI/Post/Post";
 
 
-const incr: CaseReducer<RootStateOrAny, RootStateOrAny> = (state, action) => {
+const like: CaseReducer<RootStateOrAny, RootStateOrAny> = (state, action) => {
    state.allPosts.map((post: postType) => {
       if (post.id === action.payload.id) {
          post.isFavorite = true
@@ -21,7 +21,9 @@ const decr: CaseReducer<RootStateOrAny, RootStateOrAny> = (state, action) => {
    })
    state.favoritePosts.splice(index, 1)
 }
-
+const addNew: CaseReducer<RootStateOrAny, RootStateOrAny> = (state, action) => {
+   state.allPosts.unshift(action.payload)
+}
 const addAll: CaseReducer<RootStateOrAny, RootStateOrAny> = (state, action) => {
    state.allPosts = action.payload
 }
@@ -33,11 +35,12 @@ export const counterSlice = createSlice({
       favoritePosts: []
    },
    reducers: {
-      increment: incr,
+      increment: like,
       decrement: decr,
-      addAllPosts: addAll
+      addAllPosts: addAll,
+      addNewPost: addNew,
    },
 })
 
-export const { increment, decrement, addAllPosts } = counterSlice.actions
+export const { increment, decrement, addAllPosts, addNewPost } = counterSlice.actions
 export default counterSlice.reducer

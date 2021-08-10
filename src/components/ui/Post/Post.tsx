@@ -26,8 +26,18 @@ const Post: React.FC<{ post: postType }> = ({ post }) => {
       dispatch(decrement(postObj))
    }
 
+   const getClassName = (postObj: postType) => {
+      let className = 'all-cards-container__post post'
+      if (postObj.isFavorite) {
+         className += ' favorite'
+      }
+      if (postObj.userId === 0) {
+         className += ' added'
+      }
+      return className
+   }
    return (
-      <div className={post.isFavorite ? 'all-cards-container__post post favorite' : 'all-cards-container__post post'}>
+      <div className={getClassName(post)}>
          <div className="card-content black-text">
             <h3 className="post__title card-title">{post.title}</h3>
             <p className="post__body">{post.body}</p>
