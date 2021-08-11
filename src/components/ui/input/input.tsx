@@ -1,31 +1,27 @@
 import React, { ChangeEventHandler } from "react";
 interface IInput {
-	value: string,
 	name: string,
 	type?: 'email' | 'tel' | 'text' | 'search' | 'url' | undefined,
 	labelText: string,
-	onChangeFunc: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 interface ITextarea {
-	value: string,
 	name: string,
-	type?: 'email' | 'tel' | 'text' | 'search' | 'url' | undefined,
+	type?: 'email' | 'tel' | 'text' | 'search' | 'url',
 	labelText: string,
-	onChangeFunc: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
-export const Input: React.FC<IInput> = ({ value, name, type, labelText, onChangeFunc }) => {
+export const Input: React.FC<IInput> = ({ name, type, labelText }) => {
 	return (
 		<div className="form__input input-field">
-			<input value={value} type={type} id={name} name={name} onChange={onChangeFunc} />
+			<input type={type} id={name} name={name} />
 			<label htmlFor={name}> {labelText} </label>
 		</div>
 	)
 }
 
-export const Textarea: React.FC<ITextarea> = ({ value, name, type, labelText, onChangeFunc }) => {
+export const Textarea: React.FC<ITextarea> = ({ name, type, labelText }) => {
 	return (
 		<div className="form__input input-field">
-			<textarea value={value} className="materialize-textarea" id={name} name={name} onChange={onChangeFunc} />
+			<textarea className="materialize-textarea" id={name} name={name} />
 			<label htmlFor={name}> {labelText} </label>
 		</div>
 	)

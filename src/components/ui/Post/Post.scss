@@ -1,16 +1,8 @@
 .post {
-   max-width: 270px;
    padding: 20px;
    background-color: #eee;
    border-radius: 10px;
    transition: 0.1s;
-
-   &:nth-child(odd) {
-      margin-left: auto;
-   }
-   &:nth-child(even) {
-      margin-right: auto;
-   }
 
    &.added {
       border: 2px solid red;
@@ -48,10 +40,5 @@
       &:active {
          background-color: #039be5;
       }
-   }
-}
-@media all and (max-width: 750px) {
-   .post {
-      margin: 0 auto;
    }
 }

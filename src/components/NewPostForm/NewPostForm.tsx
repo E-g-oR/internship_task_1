@@ -1,9 +1,10 @@
-import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
 import { addNewPost } from "../../features/counter/counterSlice";
 
 import { Button } from "../UI/Button/Button";
+import { Input } from "../UI/input/input";
 import { postType } from '../UI/Post/Post'
 
 import "./NewPostForm.scss"
@@ -13,37 +14,34 @@ interface IFormInput {
 	body: string,
 }
 
-export const NewPostForm: React.FC = () => {
-	const dispatch = useDispatch()
-	const { register, reset, formState: { errors }, handleSubmit } = useForm<IFormInput>()
-	const $addPost = document.querySelector('.add-post')
-
-	const createNewPost = (data: IFormInput) => {
-		const now = new Date().valueOf()
-		const userId = 0
-		return {
-			title: data.title,
-			body: data.body,
-			id: now,
-			userId: userId,
-			isFavorite: false
-		}
+const createNewPost = (data: IFormInput) => {
+	const now = new Date().valueOf()
+	const userId = 0
+	return {
+		title: data.title,
+		body: data.body,
+		id: now,
+		userId: userId,
+		isFavorite: false
 	}
+}
+
+export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>> }> = ({ isActive, setIsActive }) => {
+	const dispatch = useDispatch()
+	const { register, reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>()
 
 	const closeForm = () => {
-		$addPost?.classList.remove('active')
+		setIsActive(false)
 		reset()
 	}
 	const onSubmit: SubmitHandler<IFormInput> = (data) => {
-		let newPost: postType | undefined = createNewPost(data)
-		if (newPost !== undefined) {
-			dispatch(addNewPost(newPost))
-			closeForm()
-		}
+		const newPost: postType = createNewPost(data)
+		dispatch(addNewPost(newPost))
+		closeForm()
 	}
 
 	return (
-		<div className="add-post">
+		<div className={isActive ? "add-post active" : "add-post"}>
 			<form name="add-post" className="add-post__form form card" onSubmit={handleSubmit(onSubmit)}>
 				<div className="card-content">
 					<h2 className="form__title card-title">Create new post</h2>
@@ -66,8 +64,3 @@ export const NewPostForm: React.FC = () => {
 		</div>
 	)
 }
-
-
-
-
-// !====================

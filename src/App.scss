@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
   width: 100%;
   max-width: 1200px;
@@ -16,7 +16,7 @@
   color: red;
 }
 @media all and (max-width: 870px) {
-  .App {
+  .app {
     &__containers {
       max-height: fit-content;
       grid-template-columns: 1fr;
