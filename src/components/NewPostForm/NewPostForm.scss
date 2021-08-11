@@ -27,11 +27,11 @@
 		max-width: 500px;
 		opacity: 0;
 		transform: translateY(-200px);
-		.input-field input[type="text"]:focus + label {
+		& .input-field input[type="text"]:focus + label {
 			color: #283593;
 		}
 		/* label underline focus color */
-		.input-field input[type="text"]:focus {
+		& .input-field input[type="text"]:focus {
 			border-bottom: 1px solid #283593;
 			box-shadow: 0 1px 0 0 #283593;
 		}

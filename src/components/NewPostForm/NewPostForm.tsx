@@ -4,12 +4,12 @@ import { useDispatch } from 'react-redux'
 import { addNewPost } from "../../features/counter/counterSlice";
 
 import { Button } from "../UI/Button/Button";
-import { Input } from "../UI/input/input";
+import { Input, Textarea } from "../UI/input/input";
 import { postType } from '../UI/Post/Post'
 
 import "./NewPostForm.scss"
 
-interface IFormInput {
+export interface IFormInput {
 	title: string,
 	body: string,
 }
@@ -28,7 +28,13 @@ const createNewPost = (data: IFormInput) => {
 
 export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>> }> = ({ isActive, setIsActive }) => {
 	const dispatch = useDispatch()
-	const { register, reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>()
+	const { register, reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>({
+		defaultValues: {
+			body: "",
+			title: ""
+		},
+		mode: "onChange"
+	})
 
 	const closeForm = () => {
 		setIsActive(false)
@@ -45,16 +51,8 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 			<form name="add-post" className="add-post__form form card" onSubmit={handleSubmit(onSubmit)}>
 				<div className="card-content">
 					<h2 className="form__title card-title">Create new post</h2>
-					<div className="form__input input-field">
-						<input type="text" {...register("title", { required: true, minLength: 5 })} />
-						{errors.title?.type === "required" && "Title is required"}
-						<label htmlFor="title"> Post title </label>
-					</div>
-					<div className="form__input input-field">
-						<textarea className="materialize-textarea" {...register("body", { required: true, minLength: 15 })}></textarea>
-						{errors.body?.type === "required" && "Text is also required"}
-						<label htmlFor="body"> Post body </label>
-					</div>
+					<Input control={control} name="title" rules={{ required: true }} />
+					<Textarea control={control} name="body" rules={{ required: true }} />
 				</div>
 				<div className="card-action">
 					<Button text="Add post" styles="indigo darken-3" btnType="btn" type="submit" />

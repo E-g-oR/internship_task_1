@@ -1,28 +1,27 @@
-import React, { ChangeEventHandler } from "react";
-interface IInput {
-	name: string,
-	type?: 'email' | 'tel' | 'text' | 'search' | 'url' | undefined,
-	labelText: string,
-}
-interface ITextarea {
-	name: string,
-	type?: 'email' | 'tel' | 'text' | 'search' | 'url',
-	labelText: string,
-}
-export const Input: React.FC<IInput> = ({ name, type, labelText }) => {
+
+import { useController, UseControllerProps } from "react-hook-form";
+import { IFormInput } from "../../NewPostForm/NewPostForm";
+
+
+export const Input = (props: UseControllerProps<IFormInput>) => {
+	const { field, fieldState } = useController(props)
+
 	return (
 		<div className="form__input input-field">
-			<input type={type} id={name} name={name} />
-			<label htmlFor={name}> {labelText} </label>
+			<input {...field} type="text" id={props.name} autoComplete="off" />
+			<label htmlFor={props.name} > {props.name} </label>
+			<span className="helper-text">{fieldState.invalid ? 'Can not be empty' : ''}</span>
 		</div>
 	)
 }
 
-export const Textarea: React.FC<ITextarea> = ({ name, type, labelText }) => {
+export const Textarea = (props: UseControllerProps<IFormInput>) => {
+	const { field, fieldState } = useController(props)
 	return (
 		<div className="form__input input-field">
-			<textarea className="materialize-textarea" id={name} name={name} />
-			<label htmlFor={name}> {labelText} </label>
+			<textarea className="materialize-textarea" {...field} id={props.name} />
+			<label htmlFor={props.name}> {props.name} </label>
+			<span className="helper-text">{fieldState.invalid ? 'Can not be empty' : ''}</span>
 		</div>
 	)
 }
