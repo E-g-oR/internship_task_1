@@ -1,8 +1,9 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { increment, decrement } from '../../../features/counter/counterSlice';
-import PostButton from '../postButton/PostButton';
-import './Post.scss'
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { increment, decrement } from '../../../features/counter/counterSlice'
+import PostButton from '../postButton/PostButton'
+// import './Post.scss'
+
 export interface postType {
    userId: number,
    id: number,

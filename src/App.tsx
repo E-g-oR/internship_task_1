@@ -1,12 +1,12 @@
-import './App.scss';
 import React, { useState } from 'react';
 import AllCardsContainer from './components/AllCardsContainer/AllCardsContainer';
 import FavoriteCardsContainer from './components/FavoriteCardsContainer/FavoriteCardsContainer';
 import CardDetails from './components/CardDetails/CardDetails';
 import { Button } from './components/UI/Button/Button';
 import { NewPostForm } from './components/NewPostForm/NewPostForm';
+import './App.scss';
 
-const App: React.FC = () => {
+const App = () => {
   const [isModalActive, setIsModalActive] = useState<boolean>(false)
   // let active: boolean = false
   const showPopup = () => setIsModalActive(true)

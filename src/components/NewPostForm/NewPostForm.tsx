@@ -7,7 +7,7 @@ import { Button } from "../UI/Button/Button";
 import { Input, Textarea } from "../UI/input/input";
 import { postType } from '../UI/Post/Post'
 
-import "./NewPostForm.scss"
+// import "./NewPostForm.scss"
 
 export interface IFormInput {
 	title: string,
@@ -41,6 +41,10 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 		reset()
 	}
 	const onSubmit: SubmitHandler<IFormInput> = (data) => {
+		if (data.body.trim() !== '' && data.title.trim() !== '') addPost(data)
+	}
+
+	const addPost = (data: IFormInput) => {
 		const newPost: postType = createNewPost(data)
 		dispatch(addNewPost(newPost))
 		closeForm()

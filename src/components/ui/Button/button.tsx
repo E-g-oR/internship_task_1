@@ -8,5 +8,5 @@ interface Ibutton {
 }
 
 export const Button: React.FC<Ibutton> = ({ text, type, styles, btnType, onClick }) => {
-	return <button className={`waves-effect waves-light ${styles} ${btnType}`} onClick={onClick} type={type}>{text}</button>
+	return <button data-testid="button" className={`waves-effect waves-light ${styles} ${btnType}`} onClick={onClick} type={type}>{text}</button>
 }

@@ -11,7 +11,7 @@ interface IPostButton {
 const PostButton: React.FC<IPostButton> = ({ text, clickHandler, postObj }) => {
 
    return (
-      <button className="post__button" onClick={() => { clickHandler(postObj) }}>{text}</button>
+      <button data-testid="post-button" className="post__button" onClick={() => { clickHandler(postObj) }}>{text}</button>
    )
 }
 export default PostButton

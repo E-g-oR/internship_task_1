@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { useController, UseControllerProps } from "react-hook-form";
 import { IFormInput } from "../../NewPostForm/NewPostForm";
 

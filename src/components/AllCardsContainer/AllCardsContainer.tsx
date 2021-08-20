@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import './AllCardsContainer.scss'
 import Post, { postType } from '../UI/Post/Post'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { addAllPosts } from '../../features/counter/counterSlice'
+import './AllCardsContainer.scss'
 
 const AllCardsContainer: React.FC = () => {
    let allPosts: postType[] = useSelector((state: RootStateOrAny) => state.counter.allPosts)
