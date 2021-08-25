@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Post, { postType } from '../UI/Post/Post'
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { addAllPosts } from '../../features/counter/counterSlice'
-import './AllCardsContainer.scss'
+// import './AllCardsContainer.scss'
 
 const AllCardsContainer: React.FC = () => {
    let allPosts: postType[] = useSelector((state: RootStateOrAny) => state.counter.allPosts)
@@ -21,13 +21,13 @@ const AllCardsContainer: React.FC = () => {
 
    if (!loaded) {
       return (
-         <div className="all-cards-container">
+         <div data-testid="all-cards-container" className="all-cards-container">
             <p>Loading...</p>
          </div>
       )
    }
    return (
-      <div className="all-cards-container">
+      <div data-testid="all-cards-container" className="all-cards-container">
          {allPosts.map((post) => <Post key={post.id} post={post} />)}
       </div>
    )
