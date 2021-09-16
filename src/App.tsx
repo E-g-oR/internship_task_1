@@ -12,7 +12,7 @@ const App = () => {
   const showPopup = () => setIsModalActive(true)
 
   return (
-    <div className="app">
+    <div className="app" data-testid="app">
       <Button text="Add new post" type="button" onClick={showPopup} styles="indigo darken-3" btnType="btn" />
       <div className="app__containers">
         <AllCardsContainer />

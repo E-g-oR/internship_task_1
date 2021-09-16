@@ -20,4 +20,3 @@ describe('reneder post', () => {
 		expect(queryByTestId('post-button').textContent).toBe('Add to favorites');
 	})
 })
-

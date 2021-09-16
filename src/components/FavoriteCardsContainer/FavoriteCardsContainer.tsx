@@ -8,10 +8,7 @@ const FavoriteCardsContainer: React.FC = () => {
 
    return (
       <div data-testid="favorite-cards-container" className="favorite-cards-container">
-         Favorite Cards Container
-         <div>
-            {posts.map(post => <Post key={post.id} post={post} />)}
-         </div>
+         {posts.map(post => <Post key={post.id} post={post} />)}
       </div>
    )
 }
