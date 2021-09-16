@@ -1,7 +1,6 @@
 import { CaseReducer, createSlice } from "@reduxjs/toolkit";
 import { RootStateOrAny } from "react-redux";
-import { postType } from "../../components/UI/Post/Post";
-
+import { postType } from "../../components/ui/Post/Post";
 
 const like: CaseReducer<RootStateOrAny, RootStateOrAny> = (state, action) => {
    state.allPosts.map((post: postType) => {

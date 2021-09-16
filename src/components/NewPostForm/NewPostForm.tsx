@@ -1,13 +1,13 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import React, { Dispatch, SetStateAction } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
 import { addNewPost } from "../../features/counter/counterSlice";
 
-import { Button } from "../UI/Button/Button";
-import { Input, Textarea } from "../UI/input/input";
-import { postType } from '../UI/Post/Post'
+import { Button } from "../ui/Button/Button";
+import { Input, Textarea } from "../ui/input/input";
+import { postType } from '../ui/Post/Post'
 
-// import "./NewPostForm.scss"
+import "./NewPostForm.scss"
 
 export interface IFormInput {
 	title: string,
@@ -28,7 +28,7 @@ const createNewPost = (data: IFormInput) => {
 
 export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>> }> = ({ isActive, setIsActive }) => {
 	const dispatch = useDispatch()
-	const { register, reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>({
+	const {  reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>({
 		defaultValues: {
 			body: "",
 			title: ""

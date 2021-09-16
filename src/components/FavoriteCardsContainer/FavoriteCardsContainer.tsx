@@ -1,7 +1,7 @@
 import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
-import Post, { postType } from '../UI/Post/Post'
-// import './FavoriteCardsContainer.scss'
+import Post, { postType } from '../ui/Post/Post'
+import './FavoriteCardsContainer.scss'
 
 const FavoriteCardsContainer: React.FC = () => {
    const posts: postType[] = useSelector((state: RootStateOrAny) => state.counter.favoritePosts)

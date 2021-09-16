@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AllCardsContainer from './components/AllCardsContainer/AllCardsContainer';
 import FavoriteCardsContainer from './components/FavoriteCardsContainer/FavoriteCardsContainer';
 import CardDetails from './components/CardDetails/CardDetails';
-import { Button } from './components/UI/Button/Button';
+import { Button } from './components/ui/Button/Button';
 import { NewPostForm } from './components/NewPostForm/NewPostForm';
 import './App.scss';
 
