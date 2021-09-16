@@ -36,7 +36,7 @@ describe('render AllCardsContainer component', () => {
 it('button changed text content after clicked', async () => {
 	await act(async () => {
 		render(
-			<Provider store={store}>	<AllCardsContainer /> </Provider>)
+			<Provider store={store}><AllCardsContainer /></Provider>)
 	})
 	const postButton = screen.queryByTestId('post-button')
 	expect(postButton).toHaveTextContent(/add to favorite/i)

@@ -8,7 +8,6 @@ import './App.scss';
 
 const App = () => {
   const [isModalActive, setIsModalActive] = useState<boolean>(false)
-  // let active: boolean = false
   const showPopup = () => setIsModalActive(true)
 
   return (
