@@ -28,7 +28,7 @@ const createNewPost = (data: IFormInput) => {
 
 export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>> }> = ({ isActive, setIsActive }) => {
 	const dispatch = useDispatch()
-	const {  reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>({
+	const { reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>({
 		defaultValues: {
 			body: "",
 			title: ""
@@ -59,7 +59,7 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 					<Textarea control={control} name="body" rules={{ required: true }} />
 				</div>
 				<div className="card-action">
-					<Button text="Add post" styles="indigo darken-3" btnType="btn" type="submit" />
+					<Button text="Confirm" styles="indigo darken-3" btnType="btn" type="submit" />
 					<Button text="Cancel" btnType="btn-flat" type="button" onClick={closeForm} />
 				</div>
 			</form>

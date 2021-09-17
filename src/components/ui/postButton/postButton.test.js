@@ -1,11 +1,24 @@
 import React from "react";
-import { render, screen, cleanup, unmountComponentAtNode, queryByText, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react';
+import { unmountComponentAtNode } from 'react-dom';
+
 import PostButton from "./PostButton";
-import { Button } from "../Button/Button";
 import userEvent from "@testing-library/user-event";
 
-describe('button render', () => {
+let container = null;
+beforeEach(() => {
+	container = document.createElement("div");
+	document.body.appendChild(container);
+});
+
+afterEach(() => {
+	unmountComponentAtNode(container);
+	container.remove();
+	container = null;
+});
+
+describe('render <PostButton/> component', () => {
 	const mockClickHandler = jest.fn()
 	const postData = {
 		id: 1,
@@ -14,13 +27,13 @@ describe('button render', () => {
 		body: 'post body',
 		isFavorite: false
 	}
-	it('should render button', () => {
-		render(<PostButton text='button' postObj={postData} clickHandler={mockClickHandler} />)
+	it('renders fine', () => {
+		render(<PostButton text='button' postObj={postData} clickHandler={mockClickHandler} />, container)
 		expect(screen.queryByText(/button/)).toBeInTheDocument()
 	})
 
-	it('should call function', () => {
-		render(<PostButton text='button' postObj={postData} clickHandler={mockClickHandler} />)
+	it('should call clickHandler function', () => {
+		render(<PostButton text='button' postObj={postData} clickHandler={mockClickHandler} />, container)
 		userEvent.click(screen.queryByText(/button/))
 		expect(mockClickHandler).toHaveBeenCalled()
 	})

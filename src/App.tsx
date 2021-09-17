@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="app" data-testid="app">
-      <Button text="Add new post" type="button" onClick={showPopup} styles="indigo darken-3" btnType="btn" />
+      <Button text="add new post" type="button" onClick={showPopup} styles="indigo darken-3" btnType="btn" />
       <div className="app__containers">
         <AllCardsContainer />
         <FavoriteCardsContainer />
