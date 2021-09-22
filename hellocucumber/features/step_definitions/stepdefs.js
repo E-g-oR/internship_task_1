@@ -1,39 +1,30 @@
-var expect = chai.expect;
+const { Given, When, Then, AfterAll } = require('cucumber');
+const { Builder, By, Capabilities, Key } = require('selenium-webdriver');
+const { expect } = require('chai');
 
-import React from 'react'
-import '@testing-library/jest-dom'
-require('@testing-library/jest-dom')
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import store from './app/store';
-import App from './App';
+require("chromedriver");
 
-const assert = require('assert')
-const { Given, When, Then } = require('@cucumber/cucumber')
+// driver setup
+const capabilities = Capabilities.chrome();
+capabilities.set('chromeOptions', { "w3c": false });
+const driver = new Builder().withCapabilities(capabilities).build();
 
-Given('the DOM', function () {
-   const { JSDOM } = require('jsdom')
-   const jsdom = new JSDOM('<!doctype html><html><body></body></html>')
-   const { window } = jsdom;
-   global.window = window;
-   global.document = window.document;
-})
-When('I render a React component called: App', function () {
-   this.wrapper = render(<Provider store={store}><App /></Provider>);
-});
-Then('my app should contain the words: {string}', function (search) {
-   assert(this.wrapper.contains(search));
+Given('I am on the Google search page', async function () {
+   await driver.get('http://www.google.com');
 });
 
-Given('I want to render <App/> component', function () {
-   // Write code here that turns the phrase above into concrete actions
-   return 'pending';
+When('I search for {string}', async function (searchTerm) {
+   const element = await driver.findElement(By.name('q'));
+   element.sendKeys(searchTerm, Key.RETURN);
+   element.submit();
 });
-When('I want to see if <App/> rendered fine', function () {
-   // Write code here that turns the phrase above into concrete actions
-   return 'pending';
+
+Then('the page title should start with {string}', { timeout: 60 * 1000 }, async function (searchTerm) {
+   const title = await driver.getTitle();
+   const isTitleStartWithCheese = title.toLowerCase().lastIndexOf(`${searchTerm}`, 0) === 0;
+   expect(isTitleStartWithCheese).to.equal(true);
 });
-Then('the result of render <App/> should be {string}', function () {
-   // Write code here that turns the phrase above into concrete actions
-   return 'pending';
+
+AfterAll('end', async function () {
+   await driver.quit();
 });
