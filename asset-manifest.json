@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/E-g-oR/internship_task_1-pages/static/css/main.874a077d.chunk.css",
-    "main.js": "/E-g-oR/internship_task_1-pages/static/js/main.0d6c38e3.chunk.js",
-    "main.js.map": "/E-g-oR/internship_task_1-pages/static/js/main.0d6c38e3.chunk.js.map",
-    "runtime-main.js": "/E-g-oR/internship_task_1-pages/static/js/runtime-main.d595e20a.js",
-    "runtime-main.js.map": "/E-g-oR/internship_task_1-pages/static/js/runtime-main.d595e20a.js.map",
-    "static/js/2.51ba671a.chunk.js": "/E-g-oR/internship_task_1-pages/static/js/2.51ba671a.chunk.js",
-    "static/js/2.51ba671a.chunk.js.map": "/E-g-oR/internship_task_1-pages/static/js/2.51ba671a.chunk.js.map",
-    "static/js/3.fa672d4f.chunk.js": "/E-g-oR/internship_task_1-pages/static/js/3.fa672d4f.chunk.js",
-    "static/js/3.fa672d4f.chunk.js.map": "/E-g-oR/internship_task_1-pages/static/js/3.fa672d4f.chunk.js.map",
-    "index.html": "/E-g-oR/internship_task_1-pages/index.html",
-    "static/css/main.874a077d.chunk.css.map": "/E-g-oR/internship_task_1-pages/static/css/main.874a077d.chunk.css.map",
-    "static/js/2.51ba671a.chunk.js.LICENSE.txt": "/E-g-oR/internship_task_1-pages/static/js/2.51ba671a.chunk.js.LICENSE.txt"
+    "main.css": "/internship_task_1-pages/static/css/main.874a077d.chunk.css",
+    "main.js": "/internship_task_1-pages/static/js/main.0d6c38e3.chunk.js",
+    "main.js.map": "/internship_task_1-pages/static/js/main.0d6c38e3.chunk.js.map",
+    "runtime-main.js": "/internship_task_1-pages/static/js/runtime-main.8f1f479d.js",
+    "runtime-main.js.map": "/internship_task_1-pages/static/js/runtime-main.8f1f479d.js.map",
+    "static/js/2.51ba671a.chunk.js": "/internship_task_1-pages/static/js/2.51ba671a.chunk.js",
+    "static/js/2.51ba671a.chunk.js.map": "/internship_task_1-pages/static/js/2.51ba671a.chunk.js.map",
+    "static/js/3.fa672d4f.chunk.js": "/internship_task_1-pages/static/js/3.fa672d4f.chunk.js",
+    "static/js/3.fa672d4f.chunk.js.map": "/internship_task_1-pages/static/js/3.fa672d4f.chunk.js.map",
+    "index.html": "/internship_task_1-pages/index.html",
+    "static/css/main.874a077d.chunk.css.map": "/internship_task_1-pages/static/css/main.874a077d.chunk.css.map",
+    "static/js/2.51ba671a.chunk.js.LICENSE.txt": "/internship_task_1-pages/static/js/2.51ba671a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d595e20a.js",
+    "static/js/runtime-main.8f1f479d.js",
     "static/js/2.51ba671a.chunk.js",
     "static/css/main.874a077d.chunk.css",
     "static/js/main.0d6c38e3.chunk.js"
