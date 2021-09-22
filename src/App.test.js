@@ -49,7 +49,7 @@ describe('render <App/> component', () => {
       expect(favContainer).not.toBeEmptyDOMElement()
    });
 
-   it('should add new post to list', async () => {
+   it('should add new post', async () => {
       await act(async () => {
          render(<Provider store={store}> <App /> </Provider>, container)
       })
@@ -113,4 +113,21 @@ describe('render <App/> component', () => {
       expect(bodyField).toBeEmptyDOMElement()
       expect(bodyField).toHaveValue('')
    })
+   it('remove post from favorites', async () => {
+      await act(async () => {
+         render(<Provider store={store}> <App /> </Provider>, container)
+      })
+      const likeBtn = screen.queryByText(/add to favorites?/i)
+      const favContainer = screen.queryByTestId('favorite-cards-container')
+      expect(favContainer).toBeEmptyDOMElement()
+
+      fireEvent.click(likeBtn)
+      expect(likeBtn).toHaveTextContent(/remove/i)
+      expect(favContainer).not.toBeEmptyDOMElement()
+
+      fireEvent.click(likeBtn)
+      expect(favContainer).toBeEmptyDOMElement()
+      expect(likeBtn).toHaveTextContent(/add to favorites?/i)
+   })
 })
+
