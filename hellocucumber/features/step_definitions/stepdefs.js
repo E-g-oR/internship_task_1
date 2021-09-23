@@ -32,17 +32,15 @@ Then('the page title should start with {string}', async function (searchTerm) {
 
 });
 
-Given('I go to my project on {string}', function (url) {
+Given('I go to my project on {string}', async function (url) {
    await driver.get(url);
 })
-When('I click on button with text {string}', function (search) {
+When('I click on button with text {string}', async function (search) {
    const button = await driver.findElement(By.id('add-post-button'));
 })
-Then('I should see a form {string}', function (search) {
-   let from, titleInput, bodyInput
-   if (search === 'Create new post') {
-      from = await driver.findElement(By.id('add-post-form'))
-      titleInput = await driver.findElement(By.name('title'))
-      bodyInput = await driver.findElement(By.name('body'))
-   }
+Then('I should see a form {string}', async function (search) {
+   const from = await driver.findElement(By.id('add-post-form'))
+   const titleInput = await driver.findElement(By.name('title'))
+   const bodyInput = await driver.findElement(By.name('body'))
+   expect(titleInput.value).to.be.undefined
 })
