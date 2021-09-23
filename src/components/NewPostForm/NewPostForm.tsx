@@ -52,7 +52,7 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 
 	return (
 		<div className={isActive ? "add-post active" : "add-post"}>
-			<form name="add-post" className="add-post__form form card" onSubmit={handleSubmit(onSubmit)}>
+			<form name="add-post" id="add-post-form" className="add-post__form form card" onSubmit={handleSubmit(onSubmit)}>
 				<div className="card-content">
 					<h2 className="form__title card-title">Create new post</h2>
 					<Input control={control} name="title" rules={{ required: true }} />
