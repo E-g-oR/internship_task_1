@@ -11,6 +11,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^26.0.24",
