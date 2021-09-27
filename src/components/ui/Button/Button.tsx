@@ -8,5 +8,6 @@ interface Ibutton {
 }
 
 export const Button: React.FC<Ibutton> = ({ text, type, styles, btnType, onClick }) => {
-	return <button id={text.toLocaleLowerCase().replaceAll(' ', '-')} data-testid="button" className={`waves-effect waves-light ${styles} ${btnType}`} onClick={onClick} type={type}>{text}</button>
+	const id = text.toLocaleLowerCase().replace(/ /g, '-')
+	return <button id={id} data-testid="button" className={`waves-effect waves-light ${styles} ${btnType}`} onClick={onClick} type={type}>{text}</button>
 }

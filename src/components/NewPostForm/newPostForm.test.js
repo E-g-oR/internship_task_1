@@ -67,12 +67,12 @@ describe('render <NewPostForm/> component', () => {
 			await act(async () => {
 				render(<Provider store={store}> <NewPostForm isActive={false} setIsActive={mockSetIsActive} /></Provider>, container)
 			})
-			const helperTexts = screen.getAllByTestId('helper-text')
 
 			await act(async () => {
 				fireEvent.click(screen.getByText(/confirm/i))
 			})
 
+			const helperTexts = screen.getAllByTestId('helper-text')
 			helperTexts.forEach((elem) => {
 				expect(elem).toHaveTextContent('Can not be empty')
 			})
