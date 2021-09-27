@@ -7,7 +7,7 @@ const FavoriteCardsContainer: React.FC = () => {
    const posts: postType[] = useSelector((state: RootStateOrAny) => state.counter.favoritePosts)
 
    return (
-      <div data-testid="favorite-cards-container" className="favorite-cards-container">
+      <div id="favorite-cards-container" data-testid="favorite-cards-container" className="favorite-cards-container">
          {posts.map(post => <Post key={post.id} post={post} />)}
       </div>
    )
