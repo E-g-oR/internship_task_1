@@ -1,14 +1,16 @@
 import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
+import store from '../../app/store';
+
 import Post, { postType } from '../ui/Post/Post'
 import './FavoriteCardsContainer.scss'
 
 const FavoriteCardsContainer: React.FC = () => {
-   const posts: postType[] = useSelector((state: RootStateOrAny) => state.counter.favoritePosts)
+   const state = useSelector((state: RootStateOrAny) => state)
 
    return (
       <div id="favorite-cards-container" data-testid="favorite-cards-container" className="favorite-cards-container">
-         {posts.map(post => <Post key={post.id} post={post} />)}
+         {state.allPosts.map((post: postType) => post.isFavorite && <Post key={post.id} post={post} />)}
       </div>
    )
 }

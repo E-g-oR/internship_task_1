@@ -1,4 +1,3 @@
-import { ErrorMessage } from '@hookform/error-message';
 import React from 'react';
 import { useController, UseControllerProps } from "react-hook-form";
 import { IFormInput } from "../../NewPostForm/NewPostForm";
