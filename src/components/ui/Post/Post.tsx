@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { increment, decrement } from '../../../features/counter/counterSlice'
+import { POST_TOGGLED } from '../../../features/action_types'
 import PostButton from '../postButton/PostButton'
 import './Post.scss'
 
@@ -20,15 +20,11 @@ const Post: React.FC<{ post: postType }> = ({ post }) => {
    const dispatch = useDispatch()
 
    const addToFavorite = (postObj: postType): void => {
-      dispatch(increment(postObj))
-   }
-
-   const removeFromFavorite = (postObj: postType): void => {
-      dispatch(decrement(postObj))
+      dispatch({ type: POST_TOGGLED, payload: postObj.id })
    }
 
    const getClassName = (postObj: postType) => {
-      let className = 'all-cards-container__post post'
+      let className = 'all-cards-container__post post card'
       if (postObj.isFavorite) {
          className += ' favorite'
       }
@@ -44,7 +40,7 @@ const Post: React.FC<{ post: postType }> = ({ post }) => {
             <p className="post__body">{post.body}</p>
          </div>
          <div className="card-action" >
-            <PostButton text={post.isFavorite ? 'Remove' : 'Add to favorites'} clickHandler={post.isFavorite ? removeFromFavorite : addToFavorite} postObj={post} />
+            <PostButton text={post.isFavorite ? 'Remove' : 'Add to favorites'} clickHandler={addToFavorite} postObj={post} />
          </div>
       </div>
    )

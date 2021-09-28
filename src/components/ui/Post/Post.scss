@@ -1,5 +1,4 @@
 .post {
-   padding: 20px;
    background-color: #eee;
    border-radius: 10px;
    transition: 0.1s;
@@ -23,22 +22,5 @@
    }
    &__title {
       font-size: 23px;
-   }
-   &__button {
-      text-transform: uppercase;
-      border-radius: 4px;
-      background-color: #4fc3f7;
-      border: 1px solid #42a5f5;
-      font-size: 15px;
-      cursor: pointer;
-      padding: 7px 20px;
-      transition: 0.1s;
-      font-weight: bold;
-      &:hover {
-         background-color: #29b6f6;
-      }
-      &:active {
-         background-color: #039be5;
-      }
    }
 }

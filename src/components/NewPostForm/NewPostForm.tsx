@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux'
-import { addNewPost } from "../../features/counter/counterSlice";
+import { POST_ADDED } from "../../features/action_types";
 
 import { Button } from "../ui/Button/Button";
 import { Input, Textarea } from "../ui/input/input";
@@ -46,7 +46,7 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 
 	const addPost = (data: IFormInput) => {
 		const newPost: postType = createNewPost(data)
-		dispatch(addNewPost(newPost))
+		dispatch({ type: POST_ADDED, payload: newPost })
 		closeForm()
 	}
 
