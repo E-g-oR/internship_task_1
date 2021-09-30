@@ -1,6 +1,5 @@
+import { observer } from 'mobx-react'
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { increment, decrement } from '../../../features/counter/counterSlice'
 import PostButton from '../postButton/PostButton'
 import './Post.scss'
 
@@ -16,21 +15,16 @@ export interface IRootSate {
 }
 
 
-const Post: React.FC<{ post: postType }> = ({ post }) => {
-   const dispatch = useDispatch()
+const Post: React.FC<{ post: postType }> = observer(({ post }) => {
 
-   const addToFavorite = (postObj: postType): void => {
-      dispatch(increment(postObj))
-   }
-
-   const removeFromFavorite = (postObj: postType): void => {
-      dispatch(decrement(postObj))
+   const addToFavorite = (): void => {
+      post.isFavorite = !post.isFavorite
    }
 
    const getClassName = (postObj: postType) => {
-      let className = 'all-cards-container__post post'
+      let className = 'all-cards-container__post post card z-depth-2'
       if (postObj.isFavorite) {
-         className += ' favorite'
+         className += ' lime accent-2'
       }
       if (postObj.userId === 0) {
          className += ' added'
@@ -44,9 +38,9 @@ const Post: React.FC<{ post: postType }> = ({ post }) => {
             <p className="post__body">{post.body}</p>
          </div>
          <div className="card-action" >
-            <PostButton text={post.isFavorite ? 'Remove' : 'Add to favorites'} clickHandler={post.isFavorite ? removeFromFavorite : addToFavorite} postObj={post} />
+            <PostButton text={post.isFavorite ? 'Remove' : 'Add to favorites'} clickHandler={addToFavorite} postObj={post} />
          </div>
       </div>
    )
-}
+})
 export default Post

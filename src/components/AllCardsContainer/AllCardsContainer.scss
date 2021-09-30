@@ -1,15 +1,15 @@
 .all-cards-container {
-   font-size: 17px;
-   overflow-y: auto;
-   border: 3px solid red;
-   display: grid;
-   gap: 30px;
-   padding: 30px;
-   grid-template-columns: 1fr 1fr;
+  font-size: 17px;
+  overflow-y: auto;
+  border: 2px solid red;
+  display: grid;
+  gap: 30px;
+  padding: 30px;
+  grid-template-columns: 1fr 1fr;
 }
 
 @media all and (max-width: 870px) {
-   .all-cards-container {
-      max-height: 50vh;
-   }
+  .all-cards-container {
+    max-height: 50vh;
+  }
 }

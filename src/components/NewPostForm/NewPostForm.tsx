@@ -1,7 +1,7 @@
+import { observer } from "mobx-react";
 import React, { Dispatch, SetStateAction } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useDispatch } from 'react-redux'
-import { addNewPost } from "../../features/counter/counterSlice";
+import { IStore } from "../../App";
 
 import { Button } from "../ui/Button/Button";
 import { Input, Textarea } from "../ui/input/input";
@@ -26,8 +26,7 @@ const createNewPost = (data: IFormInput) => {
 	}
 }
 
-export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>> }> = ({ isActive, setIsActive }) => {
-	const dispatch = useDispatch()
+export const NewPostForm: React.FC<{ store: IStore, isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>> }> = observer(({ store, isActive, setIsActive }) => {
 	const { reset, formState: { errors }, handleSubmit, control } = useForm<IFormInput>({
 		defaultValues: {
 			body: "",
@@ -46,7 +45,7 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 
 	const addPost = (data: IFormInput) => {
 		const newPost: postType = createNewPost(data)
-		dispatch(addNewPost(newPost))
+		store.addNewPost(newPost)
 		closeForm()
 	}
 
@@ -65,4 +64,4 @@ export const NewPostForm: React.FC<{ isActive: boolean, setIsActive: Dispatch<Se
 			</form>
 		</div>
 	)
-}
+})

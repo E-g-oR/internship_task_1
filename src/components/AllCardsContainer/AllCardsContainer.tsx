@@ -1,36 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Post, { postType } from '../ui/Post/Post'
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
-import { addAllPosts } from '../../features/counter/counterSlice'
 import './AllCardsContainer.scss'
+import { Preloader } from '../preloader/Preloader'
+import { IStore } from '../../App'
+import { observer } from 'mobx-react'
 
-const AllCardsContainer: React.FC = () => {
-   let allPosts: postType[] = useSelector((state: RootStateOrAny) => state.counter.allPosts)
-   const dispatch = useDispatch()
-   const [loaded, setLoaded] = useState<boolean>(false)
 
+
+const AllCardsContainer: React.FC<{ store: IStore }> = observer(({ store }) => {
    useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/posts')
-         .then(response => response.json())
-         .then((data) => {
-            setLoaded(true)
-            data.map((item: postType) => item.isFavorite = false)
-            dispatch(addAllPosts(data))
-         })
-   }, [dispatch])
+      if (!store.allPosts.length) {
+         store.getPosts()
+      }
 
-   if (!loaded) {
-      return (
-         <div data-testid="all-cards-container" className="all-cards-container">
-            <p>Loading...</p>
-         </div>
-      )
-   }
-   return (
-      <div data-testid="all-cards-container" className="all-cards-container">
-         {allPosts.map((post) => <Post key={post.id} post={post} />)}
-      </div>
-   )
-}
+   }, [store])
+   return (<div data-testid="all-cards-container" className="all-cards-container z-depth-2">
+      {store.allPosts.length ? store.allPosts.map((post: postType) => <Post key={post.id} post={post} />) : <Preloader />}
+   </div>)
+})
+
 
 export default AllCardsContainer
