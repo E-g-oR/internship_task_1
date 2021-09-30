@@ -1,26 +1,26 @@
 .post {
-   background-color: #eee;
-   border-radius: 10px;
-   transition: 0.1s;
+  background-color: #eee;
+  border-radius: 10px;
+  transition: 0.1s;
 
-   &.added {
-      border: 2px solid red;
-   }
-   &.favorite {
-      background-color: #ffee58;
-      & .post__button {
-         background-color: #ff9800;
-         color: #fff;
-         border-color: #ffca28;
-         &:hover {
-            background-color: #fb8c00;
-         }
-         &:active {
-            background-color: #f57c00;
-         }
+  &.added {
+    border: 1px solid red;
+  }
+  &.favorite {
+    background-color: #ffee58;
+    & .post__button {
+      background-color: #ff9800;
+      color: #fff;
+      border-color: #ffca28;
+      &:hover {
+        background-color: #fb8c00;
       }
-   }
-   &__title {
-      font-size: 23px;
-   }
+      &:active {
+        background-color: #f57c00;
+      }
+    }
+  }
+  &__title {
+    font-size: 23px;
+  }
 }

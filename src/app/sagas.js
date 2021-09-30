@@ -1,4 +1,4 @@
-import { take, takeLeading, put, call, fork } from 'redux-saga/effects'
+import {  takeLeading, put, call, fork } from 'redux-saga/effects'
 import { POSTS_RECEIVED, POSTS_REQUESTED } from '../features/action_types'
 
 export async function requestPosts() {
